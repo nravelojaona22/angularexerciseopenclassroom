@@ -1,0 +1,10 @@
+<li [ngClass]="{'list-group-item clearfix' : true,
+                'list-group-item-success' : likeIt > dislikeIt,
+                'list-group-item-danger' : likeIt < dislikeIt}">
+  <h4>{{title}}</h4><span class="float-sm-right date-create">{{created_at | date : 'short'}}</span>
+  <p>{{content}}</p>
+  <div class="btn-action" style="padding-bottom: 10px;">
+    <button type="button" class="btn like btn-success" (click)= "onLike()">Like <span *ngIf="likeIt > 0">({{likeIt}})</span></button>
+    <button type="button" class="btn dislike btn-danger" (click)= "onDislike()">Dislike <span *ngIf="dislikeIt > 0">({{dislikeIt}})</span></button>
+  </div>
+</li>
